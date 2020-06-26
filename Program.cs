@@ -21,6 +21,8 @@ namespace Google.Cloud.Speech.V1.SIGSEGV
 
             var audio = RecognitionAudio.FromFile("sample.wav");
 
+            Console.WriteLine("You can see this line.");
+
             var response = await speechClient.LongRunningRecognizeAsync(
                 new RecognitionConfig
                 {
@@ -32,10 +34,6 @@ namespace Google.Cloud.Speech.V1.SIGSEGV
                 },
                 audio
             );
-
-            Console.WriteLine("You can see this line.");
-
-            var result = await response.PollUntilCompletedAsync();
 
             Console.WriteLine("But you can't see this one.");
         }
