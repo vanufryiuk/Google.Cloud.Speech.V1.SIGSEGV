@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 
 using Google.Apis.Auth.OAuth2;
 using Grpc.Auth;
-using Newtonsoft.Json;
 
 namespace Google.Cloud.Speech.V1.SIGSEGV
 {
@@ -34,9 +33,11 @@ namespace Google.Cloud.Speech.V1.SIGSEGV
                 audio
             );
 
+            Console.WriteLine("You can see this line.");
+
             var result = await response.PollUntilCompletedAsync();
 
-            Console.WriteLine(JsonConvert.SerializeObject(result.Result.Results));
+            Console.WriteLine("But you can't see this one.");
         }
     }
 }
